@@ -1,5 +1,5 @@
 import pytest
-from controlador import Controlador
+from src.controlador import Controlador
 
 
 def test_numbers_dni():
@@ -13,6 +13,3 @@ def test_letter_dni():
     DNI ="77510958S"
     test = Controlador(DNI)
     assert True== test.checkNumbersDni()
-
-[pytest]
-pythonpath = src
