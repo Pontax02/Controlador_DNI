@@ -29,12 +29,10 @@ class Controlador:
         
         letter = self.getLetter()
 
-        if letter.isalpha():
+        return True if letter.isalpha() else False
 
-            return True
-        else:
-
-            return False
+            
+        
 
 
 
