@@ -7,6 +7,7 @@ class Controlador:
         self.dni = dni
         self.letter = ""
         self.numbers = ""
+        self.tabla = Dni()
         self.setLetter()
         self.setNumbers()
 
@@ -15,7 +16,7 @@ class Controlador:
         return self.dni
 
     def checkNumbersDni(self):
-        
+
         dni = self.getNumbers()
         for char in dni.split():
             if char.isdigit():
@@ -23,7 +24,7 @@ class Controlador:
             else:
                 return False
         return True
-    
+
     def checkValidLetter(self):
 
         
@@ -31,10 +32,31 @@ class Controlador:
 
         return True if letter.isalpha() else False
 
+
+    def createDni(self):
+
+        numbers = self.getNumbers().split()
+        if self.checkNumbersDni():
             
+            
+            numbers.append(self.computeLetter())
+            return "".join(numbers)
+            
+
         
+        else:
+            return False
 
 
+    def computeLetter(self):
+
+        numbers = int(self.getNumbers())
+        try:
+
+            return self.tabla.getLetras()[numbers % 23]
+        except IndexError:
+        
+            return "Fuera de rango"
 
     def getDni(self):
 
