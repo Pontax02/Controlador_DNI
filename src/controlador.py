@@ -7,6 +7,8 @@ class Controlador:
         self.dni = dni
         self.letter = ""
         self.numbers = ""
+        self.setLetter()
+        self.setNumbers()
 
     def getDni(self):
 
@@ -24,9 +26,15 @@ class Controlador:
     
     def checkValidLetter(self):
 
+        
         letter = self.getLetter()
 
-        True if letter.isalpha() else False
+        if letter.isalpha():
+
+            return True
+        else:
+
+            return False
 
 
 
@@ -34,13 +42,13 @@ class Controlador:
 
         return self.dni
 
-    def setLetter(self,char):
+    def setLetter(self):
 
-        self.Letter = self.dni[::-1]
+        self.letter = self.dni[-1]
 
     def setNumbers(self):
 
-        self.Numbers = self.dni[:9]
+        self.numbers = self.dni[:8]
 
     def getLetter(self):
 
